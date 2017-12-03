@@ -10,12 +10,13 @@ describe('utils', () => {
     it ('ensureMask', () => {
       /* String and mask equal length */
       expect(ensureMask('abcdefg', '## ### ##')).to.equal('ab cde fg');
+      expect(ensureMask('12061992', '## / ## / ####')).to.equal('12 / 06 / 1992');
 
       /* String shorter than the mask */
       expect(ensureMask('1234567890', '#### #### #### ####')).to.equal('1234 5678 90');
 
       /* String longer than the mask */
-      expect(ensureMask('1234567890', '## ## ##')).to.equal('12 34 567890');
+      expect(ensureMask('1234567890', '##-##-##')).to.equal('12-34-567890');
 
       /* String with non-linear character indexes */
       expect(ensureMask('12 34567 89', '### ### ###')).to.equal('123 456 789');
