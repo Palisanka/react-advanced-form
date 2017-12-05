@@ -11,5 +11,5 @@ export default function ensureMask(string, mask) {
   const overlay = forcedString.substr(mask.replace(/[^#]+/g, '').length, forcedString.length);
 
   /* Replace the hashes in the mask with the characters from the string, appending an overlay */
-  return mask.replace(/#/gi, (a, b, c) => forcedString[i++] || '').trim() + overlay;
+  return mask.replace(/#/gi, () => forcedString[i++] || '').trim() + overlay;
 }
